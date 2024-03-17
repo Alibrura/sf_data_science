@@ -1,0 +1,36 @@
+def game_core_v3(number: int = 1) -> int:
+    """Сначала загадываем рандомное число от 1 до 100. Создаем бесконечный цикл, 
+    выходом из которого является условие равенства полученного числа в виде агрумента 
+    функции(number) и, числа которое мы загадали(predict). Логика функции на первых этапах 
+    состоит в том, что мы сравниваем числа, и узнаем какое из них больше. Далее
+    мы обрабатывем условия для получения нужного нам результата.
+
+    Args:
+        number (int, optional): Загаданное число. Defaults to 1.
+
+    Returns:
+        int: Число попыток
+    """
+    # Ваш код начинается здесь
+    predict = np.random.randint(1, 101)
+    count = 0
+
+    while True:
+      count+=1
+      if predict == number:
+        break
+
+      elif predict > number:
+        if predict <= 10:
+          predict -= 1
+        else: # predict > 10
+          predict -= 10
+
+      else: # predict < number
+        if number - predict <=10:
+          predict += 1
+        else: # number - predict > 10
+          predict += 10
+
+    # Ваш код заканчивается здесь
+    return count
